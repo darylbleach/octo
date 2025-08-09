@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Redirect all routes to index for client-side routing (optional; not needed with static export of app router)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
