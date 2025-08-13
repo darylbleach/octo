@@ -23,3 +23,18 @@
 body {
   font-family: inherit;
 }
+
+/* Mobile-first utilities */
+.mobile-tap-highlight {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth scrolling for mobile */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+}

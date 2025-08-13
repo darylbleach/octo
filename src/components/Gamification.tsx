@@ -1,49 +1,52 @@
-"use client";
-import { useEffect, useRef } from "react";
-
-const progress = 72; // percent
-const level = 4;
-const levelLabel = "Wellness Explorer";
-
 export default function Gamification() {
-  const circleRef = useRef<SVGCircleElement>(null);
-  useEffect(() => {
-    if (circleRef.current) {
-      const radius = circleRef.current.r.baseVal.value;
-      const circumference = 2 * Math.PI * radius;
-      circleRef.current.style.strokeDasharray = `${circumference}`;
-      circleRef.current.style.strokeDashoffset = `${circumference - (progress / 100) * circumference}`;
-    }
-  }, []);
   return (
-    <div className="bg-white rounded-2xl shadow p-6 flex flex-col items-center max-w-xs mx-auto mb-12">
-      <h3 className="text-xl font-bold text-neutral-900 mb-4">Daily Progress</h3>
-      <div className="relative w-32 h-32 mb-4">
-        <svg width="128" height="128">
-          <circle
-            cx="64"
-            cy="64"
-            r="56"
-            fill="none"
-            stroke="#F3E8EE"
-            strokeWidth="12"
-          />
-          <circle
-            ref={circleRef}
-            cx="64"
-            cy="64"
-            r="56"
-            fill="none"
-            stroke="#F472B6"
-            strokeWidth="12"
-            strokeLinecap="round"
-            style={{ transition: "stroke-dashoffset 0.6s" }}
-          />
-        </svg>
-        <span className="absolute inset-0 flex items-center justify-center text-3xl font-bold text-pink-500">{progress}%</span>
+    <div className="bg-white rounded-2xl shadow-sm border border-neutral-100 p-4 md:p-6">
+      <div className="text-center space-y-4">
+        <h3 className="text-lg md:text-xl font-bold text-neutral-900">Daily Progress</h3>
+        
+        {/* Progress circle */}
+        <div className="relative w-24 h-24 md:w-32 md:h-32 mx-auto">
+          <svg width="100%" height="100%" viewBox="0 0 128 128">
+            <circle
+              cx="64"
+              cy="64"
+              r="56"
+              fill="none"
+              stroke="#F3E8EE"
+              strokeWidth="12"
+            />
+            <circle
+              cx="64"
+              cy="64"
+              r="56"
+              fill="none"
+              stroke="#F472B6"
+              strokeWidth="12"
+              strokeLinecap="round"
+              strokeDasharray="351.86"
+              strokeDashoffset="98.52"
+            />
+          </svg>
+          <span className="absolute inset-0 flex items-center justify-center text-2xl md:text-3xl font-bold text-pink-500">
+            72%
+          </span>
+        </div>
+        
+        {/* Level info */}
+        <div className="space-y-2">
+          <div className="text-base md:text-lg font-semibold text-sage-500">
+            Level 4: Wellness Explorer
+          </div>
+          <div className="text-sm text-neutral-500">
+            Keep going! You&apos;re doing great!
+          </div>
+        </div>
+        
+        {/* Action section */}
+        <div className="px-6 md:px-8 py-3 rounded-full bg-pink-500 text-white font-semibold text-sm md:text-base shadow-md">
+          Share Milestone
+        </div>
       </div>
-      <div className="text-lg font-semibold text-sage-500 mb-2">Level {level}: {levelLabel}</div>
-      <button className="mt-4 px-8 py-3 rounded-full bg-pink-500 text-white font-bold text-base shadow-lg hover:bg-pink-600 transition-all">Share Milestone</button>
     </div>
   );
 } 

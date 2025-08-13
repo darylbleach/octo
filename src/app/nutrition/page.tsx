@@ -1,49 +1,122 @@
+import BottomNavigation from "@/components/BottomNavigation";
+
 export default function NutritionPage() {
   return (
-    <main className="max-w-5xl mx-auto py-12 px-4">
-      <h1 className="text-3xl font-bold text-pink-500 mb-8">Nutrition</h1>
-      <section className="grid grid-cols-3 gap-8">
-        {/* Nutrition Tracking Summary */}
-        <div className="col-span-1 bg-white rounded-2xl shadow p-6 flex flex-col items-center">
-          <h2 className="text-xl font-semibold text-sage-500 mb-2">Today&apos;s Nutrition</h2>
-          <div className="text-4xl font-bold text-pink-400 mb-1">1,650</div>
-          <div className="text-sm text-neutral-500 mb-4">Calories consumed</div>
-          <div className="w-full flex justify-between text-sm text-neutral-700">
-            <span>Protein</span>
-            <span>80g</span>
+    <>
+      <main className="min-h-screen bg-pink-50">
+        <section className="w-full space-y-6 md:space-y-8">
+          <div className="text-center md:text-left">
+            <h1 className="text-2xl md:text-3xl font-bold text-pink-500 mb-4 md:mb-8">Nutrition & Wellness</h1>
           </div>
-          <div className="w-full flex justify-between text-sm text-neutral-700">
-            <span>Carbs</span>
-            <span>210g</span>
+          
+          {/* Mobile-first single column layout */}
+          <div className="space-y-6 md:hidden">
+            {/* Daily Nutrition Summary */}
+            <div className="bg-white rounded-2xl shadow-sm border border-neutral-100 p-4">
+              <h3 className="text-lg font-semibold text-neutral-900 mb-4">Today&apos;s Nutrition</h3>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span>Calories</span>
+                  <span>1,200 / 2,000</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span>Protein</span>
+                  <span>45g / 80g</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span>Carbs</span>
+                  <span>120g / 250g</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span>Fat</span>
+                  <span>50g</span>
+                </div>
+                <div className="px-6 py-3 rounded-full bg-sage-400 text-white font-semibold text-sm shadow-md text-center">
+                  Log Meal
+                </div>
+              </div>
+            </div>
+            
+            {/* Meal Suggestions */}
+            <div className="bg-white rounded-2xl shadow-sm border border-neutral-100 p-4">
+              <h3 className="text-lg font-semibold text-neutral-900 mb-4">Suggested Meals</h3>
+              <div className="space-y-4">
+                <div className="border border-neutral-200 rounded-xl p-4">
+                  <h4 className="font-semibold text-neutral-900 mb-2">Berry Protein Smoothie</h4>
+                  <p className="text-sm text-neutral-600 mb-3">High-protein breakfast to fuel your morning</p>
+                  <div className="flex justify-between items-center text-sm">
+                    <span>Calories: 320</span>
+                    <span>Protein: 25g</span>
+                  </div>
+                </div>
+                
+                <div className="border border-neutral-200 rounded-xl p-4">
+                  <h4 className="font-semibold text-neutral-900 mb-2">Quinoa Bowl</h4>
+                  <p className="text-sm text-neutral-600 mb-3">Nutrient-rich lunch with vegetables</p>
+                  <div className="flex justify-between items-center text-sm">
+                    <span>Calories: 450</span>
+                    <span>Protein: 18g</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="w-full flex justify-between text-sm text-neutral-700 mb-4">
-            <span>Fat</span>
-            <span>50g</span>
+          
+          {/* Desktop layout - hidden on mobile */}
+          <div className="hidden md:grid md:grid-cols-2 md:gap-8">
+            {/* Daily Nutrition Summary */}
+            <div className="bg-white rounded-2xl shadow-sm border border-neutral-100 p-6">
+              <h3 className="text-xl font-semibold text-neutral-900 mb-6">Today&apos;s Nutrition</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <span>Calories</span>
+                  <span>1,200 / 2,000</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span>Protein</span>
+                  <span>45g / 80g</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span>Carbs</span>
+                  <span>120g / 250g</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span>Fat</span>
+                  <span>50g</span>
+                </div>
+                <div className="mt-2 px-6 py-2 rounded-full bg-sage-400 text-white font-semibold shadow-md text-center">
+                  Log Meal
+                </div>
+              </div>
+            </div>
+            
+            {/* Meal Suggestions */}
+            <div className="bg-white rounded-2xl shadow-sm border border-neutral-100 p-6">
+              <h3 className="text-xl font-semibold text-neutral-900 mb-6">Suggested Meals</h3>
+              <div className="space-y-4">
+                <div className="border border-neutral-200 rounded-xl p-4">
+                  <h4 className="font-semibold text-neutral-900 mb-2">Berry Protein Smoothie</h4>
+                  <p className="text-sm text-neutral-600 mb-3">High-protein breakfast to fuel your morning</p>
+                  <div className="flex justify-between items-center text-sm">
+                    <span>Calories: 320</span>
+                    <span>Protein: 25g</span>
+                  </div>
+                </div>
+                
+                <div className="border border-neutral-200 rounded-xl p-4">
+                  <h4 className="font-semibold text-neutral-900 mb-2">Quinoa Bowl</h4>
+                  <p className="text-sm text-neutral-600 mb-3">Nutrient-rich lunch with vegetables</p>
+                  <div className="flex justify-between items-center text-sm">
+                    <span>Calories: 450</span>
+                    <span>Protein: 18g</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <button className="mt-2 px-6 py-2 rounded-full bg-sage-400 text-white font-semibold shadow hover:bg-sage-500 transition-all">Log Meal</button>
-        </div>
-        {/* Meal Suggestions */}
-        <div className="col-span-2 bg-white rounded-2xl shadow p-6">
-          <h2 className="text-xl font-semibold text-sage-500 mb-4">Personalized Meal Suggestions</h2>
-          <ul className="space-y-4">
-            <li className="p-4 rounded-xl bg-sage-50 flex flex-col gap-1">
-              <span className="font-bold text-lg text-pink-500">Berry Protein Smoothie</span>
-              <span className="text-neutral-700">Breakfast &middot; 320 kcal</span>
-              <span className="text-neutral-500 text-sm">High in antioxidants and protein for a strong start.</span>
-            </li>
-            <li className="p-4 rounded-xl bg-sage-50 flex flex-col gap-1">
-              <span className="font-bold text-lg text-pink-500">Grilled Salmon Salad</span>
-              <span className="text-neutral-700">Lunch &middot; 480 kcal</span>
-              <span className="text-neutral-500 text-sm">Omega-3s for cycle support and energy.</span>
-            </li>
-            <li className="p-4 rounded-xl bg-sage-50 flex flex-col gap-1">
-              <span className="font-bold text-lg text-pink-500">Chickpea Buddha Bowl</span>
-              <span className="text-neutral-700">Dinner &middot; 550 kcal</span>
-              <span className="text-neutral-500 text-sm">Plant-based, high fiber, cycle-friendly.</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+      <BottomNavigation />
+    </>
   );
 } 

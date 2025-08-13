@@ -1,31 +1,28 @@
-"use client";
-import { Dumbbell, Salad, ShoppingBag, User } from "lucide-react";
-
-const tabs = [
-  { name: "Activities", icon: Dumbbell, href: "/" },
-  { name: "Nutrition", icon: Salad, href: "/nutrition" },
-  { name: "Marketplace", icon: ShoppingBag, href: "/marketplace" },
-  { name: "Profile", icon: User, href: "/profile" },
-];
-
 export default function BottomNavigation() {
-  // For now, mock 'Activities' as active
-  const active = "/";
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-neutral-100 shadow-lg z-50">
-      <ul className="flex justify-around items-center h-16">
-        {tabs.map((tab) => (
-          <li key={tab.name}>
-            <a
-              href={tab.href}
-              className={`flex flex-col items-center text-xs font-medium transition-colors ${active === tab.href ? "text-pink-500" : "text-neutral-400"}`}
-            >
-              <tab.icon size={24} />
-              {tab.name}
-            </a>
-          </li>
-        ))}
-      </ul>
+    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-neutral-100 shadow-lg z-50 md:hidden">
+      <div className="flex justify-around items-center h-16 px-2">
+        <a href="/dashboard" className="flex flex-col items-center justify-center h-full py-2 px-1 text-xs font-medium text-pink-500 bg-pink-50 rounded-lg">
+          <span className="text-lg mb-1">🏃</span>
+          <span className="text-[10px] leading-tight">Activities</span>
+        </a>
+        <a href="/nutrition" className="flex flex-col items-center justify-center h-full py-2 px-1 text-xs font-medium text-neutral-400 hover:text-neutral-600 hover:bg-neutral-50 rounded-lg">
+          <span className="text-lg mb-1">🥗</span>
+          <span className="text-[10px] leading-tight">Nutrition</span>
+        </a>
+        <a href="/marketplace" className="flex flex-col items-center justify-center h-full py-2 px-1 text-xs font-medium text-neutral-400 hover:text-neutral-600 hover:bg-neutral-50 rounded-lg">
+          <span className="text-lg mb-1">🛍️</span>
+          <span className="text-[10px] leading-tight">Marketplace</span>
+        </a>
+        <a href="/communities" className="flex flex-col items-center justify-center h-full py-2 px-1 text-xs font-medium text-neutral-400 hover:text-neutral-600 hover:bg-neutral-50 rounded-lg">
+          <span className="text-lg mb-1">👥</span>
+          <span className="text-[10px] leading-tight">Communities</span>
+        </a>
+        <a href="/profile" className="flex flex-col items-center justify-center h-full py-2 px-1 text-xs font-medium text-neutral-400 hover:text-neutral-600 hover:bg-neutral-50 rounded-lg">
+          <span className="text-lg mb-1">👤</span>
+          <span className="text-[10px] leading-tight">Profile</span>
+        </a>
+      </div>
     </nav>
   );
 } 
